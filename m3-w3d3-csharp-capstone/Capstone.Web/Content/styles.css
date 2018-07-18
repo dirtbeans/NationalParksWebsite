@@ -14,6 +14,18 @@ header {
     padding: 10px 10px;
 }
 
+h1 {
+    color: whitesmoke;
+    font-size: xx-large;
+    font-style: italic;
+    text-align: center;
+}
+
+h2 {
+    color: darkgreen;
+    font-size: large;
+    font-family: 'Bell MT';
+}
 
 nav {
     background-color: #663300;
@@ -58,3 +70,26 @@ section {
     border-radius: 7px;
 }
 
+.img-left {
+    position: relative;
+    float: left;
+    width: 125px;
+    height: 100px;
+    margin: 10px 20px 10px 20px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parklinks {
+    color: black;
+}
+
+    .parklinks:hover {
+        color: forestgreen;
+        text-decoration: underline;
+    }
+
+    .parklinks:visited {
+        color: black;
+    }
