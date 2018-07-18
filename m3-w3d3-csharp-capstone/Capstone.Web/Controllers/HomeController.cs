@@ -29,17 +29,38 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Detail()
         {
-            return View("Index");
+            return View("Detail");
         }
 
         public ActionResult Survey()
         {
-            return View("Index");
+            Survey model = new Survey();
+
+            IEnumerable<Park> parks = dal.GetAllParks();
+
+            
+            IList<SelectListItem> parkListItems = new List<SelectListItem>();
+
+            foreach (Park p in parks)
+            {
+                SelectListItem item = new SelectListItem { Value = p.ParkCode, Text = p.ParkName };
+                parkListItems.Add(item);
+            }
+
+            model.ParkSelectListItems = parkListItems;
+
+            return View("Survey", model);
+        }
+
+        [HttpPost]
+        public ActionResult PostSurvey()
+        {
+            return View("Favorite");
         }
 
         public ActionResult Favorite()
         {
-            return View("Index");
+            return View("Favorite");
         }
     }
 }
