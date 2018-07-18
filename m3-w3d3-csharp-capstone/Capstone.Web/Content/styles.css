@@ -14,6 +14,10 @@ header {
     padding: 10px 10px;
 }
 
+    header img{
+        width: 35%;
+    }
+
 
 nav {
     background-color: #663300;
@@ -42,7 +46,7 @@ nav {
         }
 
             nav li a:hover {
-                text-decoration: underline;
+                text-shadow: 4px 4px 1px #000000;
             }
 
 
