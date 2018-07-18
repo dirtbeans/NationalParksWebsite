@@ -27,13 +27,17 @@ namespace Capstone.Web.Controllers
             return View("Index", parks);
         }
 
-        public ActionResult Detail()
+        public ActionResult Detail(string id)
         {
-            return View("Detail");
+
+            Park myPark = dal.GetOnePark(id);
+
+            return View("Detail", id);
         }
 
         public ActionResult Survey()
         {
+
             Survey model = new Survey();
 
             IEnumerable<Park> parks = dal.GetAllParks();

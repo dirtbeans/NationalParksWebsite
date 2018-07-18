@@ -21,12 +21,11 @@
 
     <nav>
         <ul>
-            <li>@Html.ActionLink("Park View", "Index", "Home")</li>
-            <li>@Html.ActionLink("Detail View", "Detail", "Home")</li>
-            <li>@Html.ActionLink("Survey View", "Survey", "Home")</li>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            @*<li>@Html.ActionLink("Detail View", "Detail", "Home")</li>*@
+            <li>@Html.ActionLink("Survey", "Survey", "Home")</li>
         </ul>
     </nav>
-
 
     <section id="main-content">
         @RenderBody()

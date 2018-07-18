@@ -9,19 +9,11 @@
 {
     <div class="formInputGroup">
         @Html.Label("ParkCode", "Which park did you visit?")
-        @Html.DropDownListFor(m => m.ParkCode, Model.Parks)
+        @Html.DropDownListFor(m => m.ParkCode, Model.ParkSelectListItems)
     </div>
     <div class="formInputGroup">
         @Html.Label("State", "State")
         @Html.DropDownListFor(m => m.State, Survey.States)
-    </div>
-    <div class="formInputGroup">
-        @Html.Label("CustomerExperienceLevel", "Satisfaction Score")
-        @Html.DropDownListFor(m => m.CustomerExperienceLevel)
-    </div>
-    <div class="formInputGroup">
-        @Html.Label("AdditionalFeedback", "Feedback (optional):")
-        @Html.TextAreaFor(m => m.AdditionalFeedback)
     </div>
 
     <button class="formSubmitButton">SUBMIT!</button>

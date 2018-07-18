@@ -4,135 +4,69 @@
     ViewBag.Title = "Detail";
 }
 
-<h2>Detail</h2>
+<h2>Details of Park</h2>
 
-<div>
-    <h4>Park</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ParkCode)
-        </dt>
+<section>
+    @{
 
-        <dd>
-            @Html.DisplayFor(model => model.ParkCode)
-        </dd>
+        var parkImage = "/Content/images/parks/" + Model.ParkCode.ToLower() + ".jpg";
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ParkName)
-        </dt>
+    <img class="img-center" src=@parkImage />
 
-        <dd>
-            @Html.DisplayFor(model => model.ParkName)
-        </dd>
+    <table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
+        <tr>
+            <td>
+                @Model.ParkCode
+            </td>
+            <td>
+                @Model.ParkName
+            </td>
+            <td>
+                @Model.State
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => Model.Acreage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElevationInFeet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.MilesOfTrail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.NumberOfCampsites)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Climate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.YearFounded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.AnnualVisitorCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.InspirationalQuote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.InspirationalQuoteSource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ParkDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.EntryFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.NumberOfAnimalSpecies)
+            </td>*@
+    </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Acreage)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Acreage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ElevationInFeet)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ElevationInFeet)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MilesOfTrail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MilesOfTrail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfCampsites)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfCampsites)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Climate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Climate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.YearFounded)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.YearFounded)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AnnualVisitorCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AnnualVisitorCount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InspirationalQuote)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InspirationalQuote)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InspirationalQuoteSource)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InspirationalQuoteSource)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ParkDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ParkDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryFee)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EntryFee)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfAnimalSpecies)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfAnimalSpecies)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+</section>
+<p>  
     @Html.ActionLink("Back to List", "Index")
 </p>
