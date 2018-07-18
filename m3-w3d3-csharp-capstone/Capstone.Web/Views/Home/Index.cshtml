@@ -59,58 +59,59 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParkCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParkName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Acreage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ElevationInFeet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MilesOfTrail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfCampsites)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Climate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.YearFounded)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnnualVisitorCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InspirationalQuote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InspirationalQuoteSource)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParkDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntryFee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfAnimalSpecies)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acreage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ElevationInFeet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MilesOfTrail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfCampsites)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Climate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearFounded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnnualVisitorCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InspirationalQuote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InspirationalQuoteSource)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfAnimalSpecies)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
 
 </table>

@@ -6,16 +6,17 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static System.Collections.Specialized.NameObjectCollectionBase;
 
 namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly NpSqlDal dal;
+        private readonly NationalParkSqlDal dal;
 
         public HomeController()
         {
-            dal = new NpSqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
+            dal = new NationalParkSqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
         }
 
         // GET: Home

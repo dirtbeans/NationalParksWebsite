@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 
 namespace Capstone.Web.DAL
 {
-    public class NpSqlDal
+    public class NationalParkSqlDal
     {
         private readonly string connectionString;
         private const string SQL_GetAllParks = "SELECT * FROM park";
 
-        public NpSqlDal(string connectionString)
+        public NationalParkSqlDal(string connectionString)
         {
             this.connectionString = connectionString;
         }
@@ -34,9 +34,21 @@ namespace Capstone.Web.DAL
                     {
                         Park p = new Park();
 
+                        p.ParkCode = Convert.ToString(reader["parkCode"]);
                         p.ParkName = Convert.ToString(reader["parkName"]);
+                        p.Acreage = Convert.ToInt32(reader["acreage"]);
+                        p.ElevationInFeet = Convert.ToInt32(reader["elevationInFeet"]);
+                        p.MilesOfTrail = Convert.ToInt32(reader["milesOfTrail"]);
+                        p.NumberOfCampsites = Convert.ToInt32(reader["numberOfCampsites"]);
+                        p.Climate = Convert.ToString(reader["climate"]);
+                        p.YearFounded = Convert.ToInt32(reader["yearFounded"]);
+                        p.AnnualVisitorCount = Convert.ToInt32(reader["annualVisitorCount"]);
+                        p.InspirationalQuote = Convert.ToString(reader["inspirationalQuote"]);
+                        p.InspirationalQuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]);
                         p.State = Convert.ToString(reader["state"]);
                         p.ParkDescription = Convert.ToString(reader["parkDescription"]);
+                        p.EntryFee = Convert.ToInt32(reader["entryFee"]);
+                        p.NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
 
                         parks.Add(p);
                     }

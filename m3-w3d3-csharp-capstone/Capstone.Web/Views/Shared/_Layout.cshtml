@@ -1,13 +1,37 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    Layout = null;
+} 
+
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>Parks</title>
+    <link rel="stylesheet" href="~/Content/styles.css" />
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <div style="text-align:center">
+        <header style=" margin-left: 10%; margin-right: 10%">
+            <h1>National Parks</h1>
+        </header>
     </div>
+
+
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("Park View", "Home", "Index")</li>
+            <li>@Html.ActionLink("Detail View", "Home", "Detail")</li>
+            <li>@Html.ActionLink("Survey View", "Home", "Survey")</li>
+        </ul>
+
+    </nav>
+   <div>
+    @RenderBody()
+       </div>
+
+    <section id="main-content">
+
+    </section>
 </body>
 </html>
