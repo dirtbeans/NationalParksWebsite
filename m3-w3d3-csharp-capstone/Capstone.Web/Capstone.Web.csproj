@@ -109,6 +109,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\backpack.png" />
+    <Content Include="Content\images\backpack2.jpg" />
+    <Content Include="Content\images\geek.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\parks\cvnp.jpg" />
+    <Content Include="Content\images\parks\enp.jpg" />
+    <Content Include="Content\images\parks\gcnp.jpg" />
+    <Content Include="Content\images\parks\gnp.jpg" />
+    <Content Include="Content\images\parks\gsmnp.jpg" />
+    <Content Include="Content\images\parks\gtnp.jpg" />
+    <Content Include="Content\images\parks\mrnp.jpg" />
+    <Content Include="Content\images\parks\rmnp.jpg" />
+    <Content Include="Content\images\parks\ynp.jpg" />
+    <Content Include="Content\images\parks\ynp2.jpg" />
+    <Content Include="Content\images\scenery.png" />
+    <Content Include="Content\images\weather\cloudy.png" />
+    <Content Include="Content\images\weather\partlyCloudy.png" />
+    <Content Include="Content\images\weather\rain.png" />
+    <Content Include="Content\images\weather\snow.png" />
+    <Content Include="Content\images\weather\sunny.png" />
+    <Content Include="Content\images\weather\thunderstorms.png" />
+    <Content Include="Content\styles.css" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

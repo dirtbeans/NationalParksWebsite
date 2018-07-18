@@ -12,17 +12,18 @@
 </head>
 <body>
     <div style="text-align:center">
-        <header style=" margin-left: 10%; margin-right: 10%">
-            <h1>National Parks</h1>
+        <header>
+            <img src="~/Content/images/logo.png" />
+            <h1>National Park Geek</h1>
         </header>
     </div>
 
 
     <nav>
         <ul>
-            <li>@Html.ActionLink("Park View", "Home", "Index")</li>
-            <li>@Html.ActionLink("Detail View", "Home", "Detail")</li>
-            <li>@Html.ActionLink("Survey View", "Home", "Survey")</li>
+            <li>@Html.ActionLink("Park View", "Index", "Home")</li>
+            <li>@Html.ActionLink("Detail View", "Detail", "Home")</li>
+            <li>@Html.ActionLink("Survey View", "Survey", "Home")</li>
         </ul>
 
     </nav>
