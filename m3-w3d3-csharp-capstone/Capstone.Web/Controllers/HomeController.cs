@@ -27,19 +27,21 @@ namespace Capstone.Web.Controllers
             return View("Index", parks);
         }
 
-        public ActionResult Detail()
+        public ActionResult Detail(string id)
         {
-            return View("Index");
+            Park myPark = dal.GetOnePark(id);
+
+            return View("Detail", id);
         }
 
         public ActionResult Survey()
         {
-            return View("Index");
+            return View("Survey");
         }
 
         public ActionResult Favorite()
         {
-            return View("Index");
+            return View("Favorite");
         }
     }
 }
