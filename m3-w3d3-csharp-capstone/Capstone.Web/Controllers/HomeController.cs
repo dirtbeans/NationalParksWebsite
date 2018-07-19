@@ -69,7 +69,11 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Favorite()
         {
-            return View("Favorite");
+
+            List<Park> parks = dal.GetAllParks();
+
+
+            return View("Favorite", parks);
         }
     }
 }
