@@ -17,7 +17,54 @@
 
     @{
         var weatherImage = "/Content/images/weather/" + Model.WeatherFromParkAndWeather.Forecast + ".png";
+        var dayOneWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 1;
+        var dayTwoWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 2;
+        var dayThreeWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 3;
+        var dayFourWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 4;
+        var dayFiveWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 5;
+        
     }
+   
+    <img class="img-center" src=@weatherImage />
+    <div>
+        @if (Model.WeatherFromParkAndWeather.Forecast == "snow")
+        {
+            <h2>Make sure you pack snowshoes!</h2>
+        }
+        @if (Model.WeatherFromParkAndWeather.Forecast == "rain")
+        {
+            <h2>Make sure you pack rain gear and wear waterproof shoes!</h2>
+
+        }
+        @if (Model.WeatherFromParkAndWeather.Forecast == "thunderstorms")
+        {
+            <h2>SEEK SHELTER! Avoid hiking on exposed ridges!</h2>
+
+        }
+        @if (Model.WeatherFromParkAndWeather.Forecast == "sun")
+        {
+            <h2>Make sure you pack sunblock!</h2>
+        }
+        @if (Model.WeatherFromParkAndWeather.High >= 75)
+        {
+            <h2>Pack an extra gallon of water!</h2>
+        }
+        @{
+            var theHigh = Model.WeatherFromParkAndWeather.High;
+            var theLow = Model.WeatherFromParkAndWeather.Low;
+            var tempDiff = theHigh - theLow;
+        }
+        @if (tempDiff >= 20)
+        {
+            <h2>Wear breathable layers</h2>
+
+        }
+        @if (Model.WeatherFromParkAndWeather.Low <= 20)
+        {
+            <h2>IT IS GONNA BE A COLD ONE!</h2>
+        }
+
+    </div>
 
 
     <table>
@@ -26,33 +73,33 @@
             <td>
                 @Model.ParkFromParkAndWeather.ParkCode
                 <br />
-                @*@Model.ParkName
-                    <br />
-                    @Model.State
-                    <br />
-                    @Model.Acreage
-                    <br />
-                    @Model.ElevationInFeet
-                    <br />
-                    @Model.MilesOfTrail
-                    <br />
-                    @Model.NumberOfCampsites
-                    <br />
-                    @Model.Climate
-                    <br />
-                    @Model.YearFounded
-                    <br />
-                    @Model.AnnualVisitorCount
-                    <br />
-                    @Model.InspirationalQuote
-                    <br />
-                    @Model.InspirationalQuoteSource
-                    <br />
-                    @Model.ParkDescription
-                    <br />
-                    @Model.EntryFee
-                    <br />
-                    @Model.NumberOfAnimalSpecies*@
+                @Model.ParkFromParkAndWeather.ParkName
+                <br />
+                @Model.ParkFromParkAndWeather.State
+                <br />
+                @Model.ParkFromParkAndWeather.Acreage
+                <br />
+                @Model.ParkFromParkAndWeather.ElevationInFeet
+                <br />
+                @Model.ParkFromParkAndWeather.MilesOfTrail
+                <br />
+                @Model.ParkFromParkAndWeather.NumberOfCampsites
+                <br />
+                @Model.ParkFromParkAndWeather.Climate
+                <br />
+                @Model.ParkFromParkAndWeather.YearFounded
+                <br />
+                @Model.ParkFromParkAndWeather.AnnualVisitorCount
+                <br />
+                @Model.ParkFromParkAndWeather.InspirationalQuote
+                <br />
+                @Model.ParkFromParkAndWeather.InspirationalQuoteSource
+                <br />
+                @Model.ParkFromParkAndWeather.ParkDescription
+                <br />
+                @Model.ParkFromParkAndWeather.EntryFee
+                <br />
+                @Model.ParkFromParkAndWeather.NumberOfAnimalSpecies
             </td>
         </tr>
 
