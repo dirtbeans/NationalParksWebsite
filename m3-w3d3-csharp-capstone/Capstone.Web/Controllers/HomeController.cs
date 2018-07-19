@@ -34,7 +34,7 @@ namespace Capstone.Web.Controllers
 
             Park myPark = dal.GetOnePark(id);
 
-            return View("Detail", id);
+            return View("Detail", myPark);
         }
 
         public ActionResult Survey()

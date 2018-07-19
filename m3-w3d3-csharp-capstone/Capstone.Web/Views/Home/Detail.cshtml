@@ -19,54 +19,43 @@
         <tr>
             <td>
                 @Model.ParkCode
-            </td>
-            <td>
+                <br />
                 @Model.ParkName
-            </td>
-            <td>
+                <br />
                 @Model.State
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => Model.Acreage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ElevationInFeet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.MilesOfTrail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.NumberOfCampsites)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.Climate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.YearFounded)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.AnnualVisitorCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.InspirationalQuote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.InspirationalQuoteSource)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ParkDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.EntryFee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.NumberOfAnimalSpecies)
-            </td>*@
-    </table>
+                <br />
+                @Model.Acreage
+                <br />
+                @Model.ElevationInFeet
+                <br />
+                @Model.MilesOfTrail
+                <br />
+                @Model.NumberOfCampsites
+                <br />
+                @Model.Climate
+                <br />
+                @Model.YearFounded
+                <br />
+                @Model.AnnualVisitorCount
+                <br />
+                @Model.InspirationalQuote
+                <br />
+                @Model.InspirationalQuoteSource
+                <br />
+                @Model.ParkDescription
+                <br />
+                @Model.EntryFee
+                <br />
+                @Model.NumberOfAnimalSpecies
+            </td></tr>
+
+
+        
+</table>
 
 
 
 </section>
 <p>  
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Home", "Index")
 </p>

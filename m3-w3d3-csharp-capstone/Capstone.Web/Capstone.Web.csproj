@@ -146,6 +146,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\WeatherSqlDal.cs" />
     <Compile Include="DAL\NationalParkSqlDal.cs" />
     <Compile Include="DAL\SurveySqlDal.cs" />
     <Compile Include="Global.asax.cs">
