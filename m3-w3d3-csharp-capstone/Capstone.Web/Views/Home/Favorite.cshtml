@@ -1,28 +1,26 @@
 ﻿@model IEnumerable<Capstone.Web.Models.Park>
 
-
-
 @{
     ViewBag.Title = "Index";
 }
+
 <h1>Favorites</h1>
 <section>
-    @foreach (var item in Model)
-    {
-        var parkImage = "/Content/images/parks/" + item.ParkCode.ToUpper() + ".jpg";
+    <table>
+        
+        @foreach (var item in Model)
+        {
+            
+                
 
-        <img class="img-left" src=@parkImage />
+                
 
-        <h2>
-            <a class=" parklinks" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
-
-                @Html.DisplayFor(modelItem => item.ParkName)
-            </a>
-        </h2>
-
-        <p>
-            @Html.DisplayFor(modelItem => item.ParkDescription)
-        </p>
-
-    }
+                
+                    <a class=" parklinks" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
+                        @Html.DisplayFor(modelItem => item.ParkName)
+                    </a>
+                
+            
+        }
+    </table>
 </section>
