@@ -9,18 +9,22 @@
 {
     <div class="formInputGroup">
         @Html.Label("Email", "Email address: ")
+        <br />
         @Html.TextBoxFor(m => m.EmailAddress)
     </div>
     <div class="formInputGroup">
         @Html.Label("ParkCode", "Park visited: ")
+        <br />
         @Html.DropDownListFor(m => m.ParkCode, Model.ParkSelectListItems)
     </div>
     <div class="formInputGroup">
         @Html.Label("State", "State of residence: ")
+        <br />
         @Html.DropDownListFor(m => m.State, Survey.States)
     </div>
     <div class="formInputGroup">
         @Html.Label("ActivityLevel", "Activity level: ")
+        <br />
         @Html.DropDownListFor(m => m.ActivityLevel, Survey.ActivityLevelList)
     </div>
 
