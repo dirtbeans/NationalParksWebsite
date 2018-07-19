@@ -13,10 +13,12 @@ namespace Capstone.Web.Controllers
     public class HomeController : Controller
     {
         private readonly NationalParkSqlDal dal;
+        private readonly SurveySqlDal surveyDal;
 
         public HomeController()
         {
             dal = new NationalParkSqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
+            surveyDal = new SurveySqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
         }
 
         // GET: Home
@@ -57,9 +59,12 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult PostSurvey()
+        public ActionResult Survey(Survey survey)
         {
-            return View("Favorite");
+
+            surveyDal.PostSurvey(survey);
+
+            return RedirectToAction("Favorite");
         }
 
         public ActionResult Favorite()

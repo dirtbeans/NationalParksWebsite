@@ -5,15 +5,23 @@
     ViewBag.Title = "Survey";
 }
 
-@using (Html.BeginForm("PostSurvey", "Home", FormMethod.Post))
+@using (Html.BeginForm("Survey", "Home", FormMethod.Post))
 {
     <div class="formInputGroup">
-        @Html.Label("ParkCode", "Which park did you visit?")
+        @Html.Label("Email", "Email address: ")
+        @Html.TextBoxFor(m => m.EmailAddress)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("ParkCode", "Park visited: ")
         @Html.DropDownListFor(m => m.ParkCode, Model.ParkSelectListItems)
     </div>
     <div class="formInputGroup">
-        @Html.Label("State", "State")
+        @Html.Label("State", "State of residence: ")
         @Html.DropDownListFor(m => m.State, Survey.States)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("ActivityLevel", "Activity level: ")
+        @Html.DropDownListFor(m => m.ActivityLevel, Survey.ActivityLevelList)
     </div>
 
     <button class="formSubmitButton">SUBMIT!</button>

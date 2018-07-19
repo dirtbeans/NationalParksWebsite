@@ -86,5 +86,20 @@ namespace Capstone.Web.Models
         [Required]
         public string ActivityLevel { get; set; }
 
+        public static List<SelectListItem> ActivityLevelList
+        {
+            get
+            {
+                return new List<SelectListItem>()
+                {
+                    new SelectListItem { Value = "Inactive", Text = "Inacative" },
+                    new SelectListItem { Value = "Sedentary", Text = "Sedentary" },
+                    new SelectListItem { Value = "Active", Text = "Active" },
+                    new SelectListItem { Value = "Extremely Active", Text = "Extremely Active" }
+                };
+            }
+        }
+
+
     }
 }
