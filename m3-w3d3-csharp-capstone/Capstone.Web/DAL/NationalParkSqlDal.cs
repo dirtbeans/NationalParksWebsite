@@ -11,6 +11,7 @@ namespace Capstone.Web.DAL
         private const string SQL_GetAllParks = "SELECT * FROM park";
         private const string SQL_GetOnePark = "SELECT * FROM park WHERE parkCode = @parkCode";
 
+
         public NationalParkSqlDal(string connectionString)
         {
             this.connectionString = connectionString;
@@ -83,8 +84,6 @@ namespace Capstone.Web.DAL
 
                     while (reader.Read())
                     {
-                       
-
                         park.ParkCode = Convert.ToString(reader["parkCode"]);
                         park.ParkName = Convert.ToString(reader["parkName"]);
                         park.Acreage = Convert.ToInt32(reader["acreage"]);
@@ -100,9 +99,7 @@ namespace Capstone.Web.DAL
                         park.ParkDescription = Convert.ToString(reader["parkDescription"]);
                         park.EntryFee = Convert.ToInt32(reader["entryFee"]);
                         park.NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
-
-                        
-                    }
+}
 
                 }
             }
@@ -115,7 +112,7 @@ namespace Capstone.Web.DAL
         }
 
 
-
+        
 
     }
 }

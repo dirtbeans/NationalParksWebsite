@@ -14,11 +14,14 @@ namespace Capstone.Web.Controllers
     {
         private readonly NationalParkSqlDal dal;
         private readonly SurveySqlDal surveyDal;
+        private readonly WeatherSqlDal weatherDal;
+        private readonly ParksAndWeather parksAndWeather;
 
         public HomeController()
         {
             dal = new NationalParkSqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
             surveyDal = new SurveySqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
+            weatherDal = new WeatherSqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
         }
 
         // GET: Home
@@ -32,9 +35,19 @@ namespace Capstone.Web.Controllers
         public ActionResult Detail(string id)
         {
 
-            Park myPark = dal.GetOnePark(id);
+            ParksAndWeather parksAndWeather = new ParksAndWeather();
 
-            return View("Detail", myPark);
+
+
+            Park park = dal.GetOnePark(id);
+            Weather weather = weatherDal.GetWeatherForPark(id);
+
+            parksAndWeather.ParkFromParkAndWeather = park;
+            parksAndWeather.WeatherFromParkAndWeather = weather;
+
+
+
+            return View("Detail", parksAndWeather);
         }
 
         public ActionResult Survey()
@@ -44,7 +57,7 @@ namespace Capstone.Web.Controllers
 
             IEnumerable<Park> parks = dal.GetAllParks();
 
-            
+
             IList<SelectListItem> parkListItems = new List<SelectListItem>();
 
             foreach (Park p in parks)

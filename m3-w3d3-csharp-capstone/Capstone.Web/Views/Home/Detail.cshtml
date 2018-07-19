@@ -1,4 +1,4 @@
-﻿@model Capstone.Web.Models.Park
+﻿@model Capstone.Web.Models;
 
 @{
     ViewBag.Title = "Detail";
@@ -9,53 +9,61 @@
 <section>
     @{
 
-        var parkImage = "/Content/images/parks/" + Model.ParkCode.ToLower() + ".jpg";
+        var parkImage = "/Content/images/parks/" + Model.Park.ParkCode + ".jpg";
     }
 
     <img class="img-center" src=@parkImage />
+
+    @{
+        var weatherImage = "/Content/images/weather/" + Model.Weather.Forecast + ".png";
+    }
+
 
     <table>
 
         <tr>
             <td>
-                @Model.ParkCode
+                @Model.Park.ParkCode
                 <br />
-                @Model.ParkName
-                <br />
-                @Model.State
-                <br />
-                @Model.Acreage
-                <br />
-                @Model.ElevationInFeet
-                <br />
-                @Model.MilesOfTrail
-                <br />
-                @Model.NumberOfCampsites
-                <br />
-                @Model.Climate
-                <br />
-                @Model.YearFounded
-                <br />
-                @Model.AnnualVisitorCount
-                <br />
-                @Model.InspirationalQuote
-                <br />
-                @Model.InspirationalQuoteSource
-                <br />
-                @Model.ParkDescription
-                <br />
-                @Model.EntryFee
-                <br />
-                @Model.NumberOfAnimalSpecies
-            </td></tr>
+                @*@Model.ParkName
+                    <br />
+                    @Model.State
+                    <br />
+                    @Model.Acreage
+                    <br />
+                    @Model.ElevationInFeet
+                    <br />
+                    @Model.MilesOfTrail
+                    <br />
+                    @Model.NumberOfCampsites
+                    <br />
+                    @Model.Climate
+                    <br />
+                    @Model.YearFounded
+                    <br />
+                    @Model.AnnualVisitorCount
+                    <br />
+                    @Model.InspirationalQuote
+                    <br />
+                    @Model.InspirationalQuoteSource
+                    <br />
+                    @Model.ParkDescription
+                    <br />
+                    @Model.EntryFee
+                    <br />
+                    @Model.NumberOfAnimalSpecies*@
+            </td>
+        </tr>
 
 
-        
-</table>
+
+    </table>
+
+
 
 
 
 </section>
-<p>  
+<p>
     @Html.ActionLink("Back to Home", "Index")
 </p>

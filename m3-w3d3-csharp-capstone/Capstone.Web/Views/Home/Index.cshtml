@@ -9,7 +9,7 @@
 <section>
     @foreach (var item in Model)
     {
-        var parkImage = "/Content/images/parks/" + item.ParkCode.ToUpper() + ".jpg";
+        var parkImage = "/Content/images/parks/" + item.ParkCode + ".jpg";
 
         <img class="img-left" src=@parkImage />
 
