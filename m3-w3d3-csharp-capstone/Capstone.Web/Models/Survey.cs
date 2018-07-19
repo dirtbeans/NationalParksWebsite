@@ -83,7 +83,8 @@ namespace Capstone.Web.Models
 
         public IEnumerable<SelectListItem> ParkSelectListItems { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string ActivityLevel { get; set; }
 
         public static List<SelectListItem> ActivityLevelList
@@ -92,6 +93,7 @@ namespace Capstone.Web.Models
             {
                 return new List<SelectListItem>()
                 {
+
                     new SelectListItem { Value = "Inactive", Text = "Inacative" },
                     new SelectListItem { Value = "Sedentary", Text = "Sedentary" },
                     new SelectListItem { Value = "Active", Text = "Active" },

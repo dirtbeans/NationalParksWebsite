@@ -10,23 +10,24 @@
     <div class="formInputGroup">
         @Html.Label("Email", "Email address: ")
         <br />
-        @Html.TextBoxFor(m => m.EmailAddress)
+        @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
     </div>
     <div class="formInputGroup">
         @Html.Label("ParkCode", "Park visited: ")
         <br />
-        @Html.DropDownListFor(m => m.ParkCode, Model.ParkSelectListItems)
+        @Html.DropDownListFor(m => m.ParkCode, Model.ParkSelectListItems, new { @class = "form-control" })
     </div>
     <div class="formInputGroup">
         @Html.Label("State", "State of residence: ")
         <br />
-        @Html.DropDownListFor(m => m.State, Survey.States)
+        @Html.DropDownListFor(m => m.State, Survey.States, new { @class = "form-control" })
     </div>
     <div class="formInputGroup">
         @Html.Label("ActivityLevel", "Activity level: ")
         <br />
-        @Html.DropDownListFor(m => m.ActivityLevel, Survey.ActivityLevelList)
+        @Html.DropDownListFor(m => m.ActivityLevel, Survey.ActivityLevelList, new { @class = "form-control" })
     </div>
+    
 
     <button class="formSubmitButton">SUBMIT!</button>
 }
