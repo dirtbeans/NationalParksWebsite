@@ -10,13 +10,13 @@
 <section>
     @{
 
-        var parkImage = "/Content/images/parks/" + Model.Park.ParkCode + ".jpg";
+        var parkImage = "/Content/images/parks/" + Model.ParkFromParkAndWeather.ParkCode + ".jpg";
     }
 
     <img class="img-center" src=@parkImage />
 
     @{
-        var weatherImage = "/Content/images/weather/" + Model.Weather.Forecast + ".png";
+        var weatherImage = "/Content/images/weather/" + Model.WeatherFromParkAndWeather.Forecast + ".png";
     }
 
 
@@ -24,7 +24,7 @@
 
         <tr>
             <td>
-                @Model.Park.ParkCode
+                @Model.ParkFromParkAndWeather.ParkCode
                 <br />
                 @*@Model.ParkName
                     <br />
