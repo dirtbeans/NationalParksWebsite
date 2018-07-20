@@ -23,6 +23,5 @@ namespace Capstone.Web.Models
             }
         }
         public int HighInC { get; set; }
-
     }
 }

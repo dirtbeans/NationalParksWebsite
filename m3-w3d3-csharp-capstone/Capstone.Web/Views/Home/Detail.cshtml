@@ -14,85 +14,78 @@
 
 <section>
     @{
-        //var parkImage = "/Content/images/parks/" + Model.ParkWithWeather.ParkCode + ".jpg";
-        //var weatherImage = "/Content/images/weather/" + Model.ListOfWeather + ".png";
-
+        var parkImage = "/Content/images/parks/" + Model.ParkWithWeather.ParkCode + ".jpg";
+        <img class="img-center" src=@parkImage />
     }
-
-
-    @*<img class="img-center" src=@parkImage />
-
-        <img class="img-center" src=@weatherImage />
-        <img class="img-center" src=@weatherImage />
-        <img class="img-center" src=@weatherImage />
-        <img class="img-center" src=@weatherImage />
-        <img class="img-center" src=@weatherImage />*@
-
-
-    <div>
-
-        @*@if (Model.ListOfWeather. == "snow")
-            {
-                <h2>Make sure you pack snowshoes!</h2>
-            }
-            @if (Model.WeatherFromParkAndWeather.Forecast == "rain")
-            {
-                <h2>Make sure you pack rain gear and wear waterproof shoes!</h2>
-
-            }
-            @if (Model.WeatherFromParkAndWeather.Forecast == "thunderstorms")
-            {
-                <h2>SEEK SHELTER! Avoid hiking on exposed ridges!</h2>
-            }
-            @if (Model.WeatherFromParkAndWeather.Forecast == "sun")
-            {
-                <h2>Make sure you pack sunblock!</h2>
-            }
-            @if (Model.WeatherFromParkAndWeather.High >= 75)
-            {
-                <h2>Pack an extra gallon of water!</h2>
-            }
-            @{
-                var theHigh = Model.WeatherFromParkAndWeather.High;
-                var theLow = Model.WeatherFromParkAndWeather.Low;
-                var tempDiff = theHigh - theLow;
-            }
-            @if (tempDiff >= 20)
-            {
-                <h2>Wear breathable layers</h2>
-
-            }
-            @if (Model.WeatherFromParkAndWeather.Low <= 20)
-            {
-                <h2>IT IS GONNA BE A COLD ONE!</h2>
-            }*@
-
-    </div>
-
 
 
     @if ((bool)Session["IsFahrenheit"] == false)
     {
-        <td>temperature in C</td>
+        <p>temperature in C</p>
     }
     @if ((bool)Session["IsFahrenheit"] == true)
     {
-        <td>temperatre in F</td>
+        <p>temperatre in F</p>
     }
 
     <form method="post" action="@Url.Action("SwitchTemperature", "Home")">
         @Html.Hidden("parkId", Model.ParkWithWeather.ParkCode)
         <button>Switch Temperature</button>
     </form>
-    <table>
 
-        <tr>
+    <div>
 
-            @{ for (int i = 0; i < Model.ListOfWeather.Count; i++)
+
+
+        @{ for (int i = 0; i < Model.ListOfWeather.Count; i++)
+            {
+
+                var weatherImageCode = Model.ListOfWeather[i].Forecast;
+                if (Model.ListOfWeather[i].Forecast == "partly cloudy")
                 {
-                    <td>@Model.ListOfWeather[i].Low</td>
+                    weatherImageCode = "partlyCloudy";
+                }
+                var weatherImage = "/Content/images/weather/" + weatherImageCode + ".png";
+
+                <img src=@weatherImage style=width:10% />
+
+                if (Model.ListOfWeather[i].Forecast == "snow")
+                {
+                    <p>Make sure you pack snowshoes!</p>
+                }
+                if (Model.ListOfWeather[i].Forecast == "rain")
+                {
+                    <p>Make sure you pack rain gear and wear waterproof shoes!</p>
+                }
+                if (Model.ListOfWeather[i].Forecast == "thunderstorms")
+                {
+                    <p>SEEK SHELTER! Avoid hiking on exposed ridges!</p>
+                }
+                if (Model.ListOfWeather[i].Forecast == "sunny")
+                {
+                    <p>Make sure you pack sunblock!</p>
+                }
+                if (Model.ListOfWeather[i].High >= 75)
+                {
+                    <p>Pack an extra gallon of water!</p>
+                }
+                if (Model.ListOfWeather[i].Low <= 20)
+                {
+                    <p>IT IS GONNA BE A COLD ONE!</p>
+                }
+                if ((Model.ListOfWeather[i].High) - (Model.ListOfWeather[i].Low) >= 20)
+                {
+                    <p>Layers People!</p>
+                }
+                else
+                {
+                    <p> </p>
                 }
             }
+        }
+    </div>
+    <table>
+        <tr>
             <td>
 
 
