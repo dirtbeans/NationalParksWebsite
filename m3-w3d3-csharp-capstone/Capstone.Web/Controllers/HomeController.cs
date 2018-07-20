@@ -15,12 +15,17 @@ namespace Capstone.Web.Controllers
         private readonly NationalParkSqlDal dal;
         private readonly SurveySqlDal surveyDal;
         private readonly WeatherSqlDal weatherDal;
+        
 
         public HomeController()
         {
             dal = new NationalParkSqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
             surveyDal = new SurveySqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
             weatherDal = new WeatherSqlDal(ConfigurationManager.ConnectionStrings["NPGeek"].ConnectionString);
+
+            
+           
+           
         }
 
         // GET: Home
@@ -32,12 +37,28 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Detail(string id)
         {
+            ViewBag.IsFahrenheit = Session["TempType"];
             ParksAndWeather parksAndWeather = new ParksAndWeather();
             Park park = dal.GetOnePark(id);
             List<Weather> weather = weatherDal.GetWeatherForPark(id);
             parksAndWeather.ParkWithWeather = park;
             parksAndWeather.ListOfWeather = weather;
             return View("Detail", parksAndWeather);
+        }
+
+        public ActionResult SwitchTemperature(string parkId)
+        {
+            Object value = this.Session["IsFahrenheit"];
+            if (value == null)
+            {
+                Session["IsFahrenheit"] = true;
+            }
+
+            Session["IsFahrenheit"] = !(bool?)Session["IsFahrenheit"];
+
+
+
+            return RedirectToAction("Detail", "Home", new { id = parkId });
         }
 
         public ActionResult Survey()

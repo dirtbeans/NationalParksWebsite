@@ -3,6 +3,11 @@
 
 @{
     ViewBag.Title = "Detail";
+    Object value = this.Session["IsFahrenheit"];
+    if (value == null)
+    {
+        Session["IsFahrenheit"] = true;
+    }
 }
 
 <h1>
@@ -14,7 +19,25 @@
         var parkImage = "/Content/images/parks/" + Model.ParkWithWeather.ParkCode + ".jpg";
         <img class="img-center" src=@parkImage />
     }
+
+
+    @if ((bool)Session["IsFahrenheit"] == false)
+    {
+        <p>temperature in C</p>
+    }
+    @if ((bool)Session["IsFahrenheit"] == true)
+    {
+        <p>temperatre in F</p>
+    }
+
+    <form method="post" action="@Url.Action("SwitchTemperature", "Home")">
+        @Html.Hidden("parkId", Model.ParkWithWeather.ParkCode)
+        <button>Switch Temperature</button>
+    </form>
+
     <div>
+
+
 
         @{ for (int i = 0; i < Model.ListOfWeather.Count; i++)
             {
@@ -65,7 +88,9 @@
     </div>
     <table>
         <tr>
+
             <td>             
+
                 @Model.ParkWithWeather.State
                 <br />
                 @Model.ParkWithWeather.Acreage
