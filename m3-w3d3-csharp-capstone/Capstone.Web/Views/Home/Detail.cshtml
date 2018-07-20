@@ -9,51 +9,58 @@
 
 <section>
     @{
-        var parkImage = "/Content/images/parks/" + Model.ParkWithWeather.ParkCode + ".jpg";
-        var weatherImage = "/Content/images/weather/" + Model.ListOfWeather + ".png";
-
-       
-
+        //var parkImage = "/Content/images/parks/" + Model.ParkWithWeather.ParkCode + ".jpg";
+        //var weatherImage = "/Content/images/weather/" + Model.ListOfWeather + ".png";
 
     }
 
+
+    @*<img class="img-center" src=@parkImage />
+
+        <img class="img-center" src=@weatherImage />
+        <img class="img-center" src=@weatherImage />
+        <img class="img-center" src=@weatherImage />
+        <img class="img-center" src=@weatherImage />
+        <img class="img-center" src=@weatherImage />*@
+
+
     <div>
 
-        @*@if (Model.ListOfWeather.Forecast == "snow")
-        {
-            <h2>Make sure you pack snowshoes!</h2>
-        }
-        @if (Model.WeatherFromParkAndWeather.Forecast == "rain")
-        {
-            <h2>Make sure you pack rain gear and wear waterproof shoes!</h2>
+        @*@if (Model.ListOfWeather. == "snow")
+            {
+                <h2>Make sure you pack snowshoes!</h2>
+            }
+            @if (Model.WeatherFromParkAndWeather.Forecast == "rain")
+            {
+                <h2>Make sure you pack rain gear and wear waterproof shoes!</h2>
 
-        }
-        @if (Model.WeatherFromParkAndWeather.Forecast == "thunderstorms")
-        {
-            <h2>SEEK SHELTER! Avoid hiking on exposed ridges!</h2>
-        }
-        @if (Model.WeatherFromParkAndWeather.Forecast == "sun")
-        {
-            <h2>Make sure you pack sunblock!</h2>
-        }
-        @if (Model.WeatherFromParkAndWeather.High >= 75)
-        {
-            <h2>Pack an extra gallon of water!</h2>
-        }
-        @{
-            var theHigh = Model.WeatherFromParkAndWeather.High;
-            var theLow = Model.WeatherFromParkAndWeather.Low;
-            var tempDiff = theHigh - theLow;
-        }
-        @if (tempDiff >= 20)
-        {
-            <h2>Wear breathable layers</h2>
+            }
+            @if (Model.WeatherFromParkAndWeather.Forecast == "thunderstorms")
+            {
+                <h2>SEEK SHELTER! Avoid hiking on exposed ridges!</h2>
+            }
+            @if (Model.WeatherFromParkAndWeather.Forecast == "sun")
+            {
+                <h2>Make sure you pack sunblock!</h2>
+            }
+            @if (Model.WeatherFromParkAndWeather.High >= 75)
+            {
+                <h2>Pack an extra gallon of water!</h2>
+            }
+            @{
+                var theHigh = Model.WeatherFromParkAndWeather.High;
+                var theLow = Model.WeatherFromParkAndWeather.Low;
+                var tempDiff = theHigh - theLow;
+            }
+            @if (tempDiff >= 20)
+            {
+                <h2>Wear breathable layers</h2>
 
-        }
-        @if (Model.WeatherFromParkAndWeather.Low <= 20)
-        {
-            <h2>IT IS GONNA BE A COLD ONE!</h2>
-        }*@
+            }
+            @if (Model.WeatherFromParkAndWeather.Low <= 20)
+            {
+                <h2>IT IS GONNA BE A COLD ONE!</h2>
+            }*@
 
     </div>
 
@@ -61,6 +68,11 @@
     <table>
 
         <tr>
+            @{ for (int i = 0; i < Model.ListOfWeather.Count; i++)
+                {
+                    <td>@Model.ListOfWeather[i].Low</td>
+                }
+            }
             <td>
                 @Model.ListOfWeather[0].Low
                 @Url.Action()
