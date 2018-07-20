@@ -14,6 +14,10 @@ header {
     header img{
         width: 35%;
     }
+div {
+    display: inline-block;
+    width: 50%;
+}
 h1 {
     color: black;
     font-size: xx-large;
