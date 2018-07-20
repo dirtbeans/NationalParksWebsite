@@ -9,24 +9,38 @@
 
 <section>
     @{
-
         var parkImage = "/Content/images/parks/" + Model.ParkFromParkAndWeather.ParkCode + ".jpg";
+   
+        var dayOneWeatherImageCode = "";
+        var dayTwoWeatherImageCode = "";
+        var dayOneWeatherImage = "/Content/images/weather/" + dayOneWeatherImageCode + ".png";
+        var dayTwoWeatherImage = "/Content/images/weather/" + dayTwoWeatherImageCode + ".png";
+    
+    
+        //var weatherImage = "/Content/images/weather/" + Model.WeatherFromParkAndWeather.Forecast + ".png";
+        if (Model.WeatherFromParkAndWeather.FiveDayForecastValue == 1)
+        {
+            dayOneWeatherImageCode = Model.WeatherFromParkAndWeather.Forecast;
+        }
+        if (Model.WeatherFromParkAndWeather.FiveDayForecastValue == 2)
+        {
+            dayTwoWeatherImageCode = Model.WeatherFromParkAndWeather.Forecast;
+
+        }
+
+        var dayTwoWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 2;
+        var dayThreeWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 3;
+        var dayFourWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 4;
+        var dayFiveWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 5;
+
     }
 
     <img class="img-center" src=@parkImage />
 
-    @{
-        var weatherImage = "/Content/images/weather/" + Model.WeatherFromParkAndWeather.Forecast + ".png";
-        var dayOneWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 1;
-        var dayTwoWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 2;
-        var dayThreeWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 3;
-        var dayFourWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 4;
-        var dayFiveWeatherImage = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 5;
-        
-    }
-   
-    <img class="img-center" src=@weatherImage />
+    <img class="img-center" src=@dayOneWeatherImage />
+    <img class="img-center" src=@dayTwoWeatherImage />
     <div>
+
         @if (Model.WeatherFromParkAndWeather.Forecast == "snow")
         {
             <h2>Make sure you pack snowshoes!</h2>
@@ -39,7 +53,6 @@
         @if (Model.WeatherFromParkAndWeather.Forecast == "thunderstorms")
         {
             <h2>SEEK SHELTER! Avoid hiking on exposed ridges!</h2>
-
         }
         @if (Model.WeatherFromParkAndWeather.Forecast == "sun")
         {
