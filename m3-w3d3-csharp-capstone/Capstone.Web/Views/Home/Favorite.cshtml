@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Capstone.Web.Models.Park>
+﻿@model List<Capstone.Web.Models.ParkSurveyCount>
 
 @{
     ViewBag.Title = "Index";
@@ -7,20 +7,19 @@
 <h1>Favorites</h1>
 <section>
     <table>
-        
+
         @foreach (var item in Model)
         {
-            
-                
-
-                
-
-                
+            <tr>
+                <td>
                     <a class=" parklinks" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
                         @Html.DisplayFor(modelItem => item.ParkName)
                     </a>
-                
-            
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyCount)
+                </td>
+            </tr>
         }
     </table>
 </section>
