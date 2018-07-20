@@ -28,62 +28,44 @@ namespace Capstone.Web.Controllers
         public ActionResult Index()
         {
             List<Park> parks = dal.GetAllParks();
-
             return View("Index", parks);
         }
 
         public ActionResult Detail(string id)
         {
-
             ParksAndWeather parksAndWeather = new ParksAndWeather();
-
             Park park = dal.GetOnePark(id);
-
             List<Weather> weather = weatherDal.GetWeatherForPark(id);
-
             parksAndWeather.ParkWithWeather = park;
             parksAndWeather.ListOfWeather = weather;
-
             return View("Detail", parksAndWeather);
         }
 
         public ActionResult Survey()
         {
-
             Survey model = new Survey();
-
             IEnumerable<Park> parks = dal.GetAllParks();
-
-
             IList<SelectListItem> parkListItems = new List<SelectListItem>();
-
             foreach (Park p in parks)
             {
                 SelectListItem item = new SelectListItem { Value = p.ParkCode, Text = p.ParkName };
                 parkListItems.Add(item);
             }
-
             model.ParkSelectListItems = parkListItems;
-
             return View("Survey", model);
         }
 
         [HttpPost]
         public ActionResult Survey(Survey survey)
         {
-
             surveyDal.PostSurvey(survey);
-
             return RedirectToAction("Favorite");
         }
 
         public ActionResult Favorite()
         {
             List<ParkSurveyCount> parkSurveyList = new List<ParkSurveyCount>();
-
             parkSurveyList = surveyDal.GetSurveyCountList();
-
-
             return View("Favorite", parkSurveyList);
         }
     }

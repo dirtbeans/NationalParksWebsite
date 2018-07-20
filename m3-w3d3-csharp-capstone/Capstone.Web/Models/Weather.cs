@@ -12,6 +12,5 @@ namespace Capstone.Web.Models
         public int Low { get; set; } //Degrees in F
         public int High { get; set; } //Degrees in F
         public string Forecast { get; set; }
-
     }
 }

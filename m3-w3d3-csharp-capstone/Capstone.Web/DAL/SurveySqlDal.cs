@@ -37,7 +37,6 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@activityLevel", newSurvey.ActivityLevel);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
-
                     return rowsAffected > 0;
                 }
             }
@@ -72,7 +71,6 @@ namespace Capstone.Web.DAL
             {
                 throw;
             }
-
             return surveyCount;
         }
 
@@ -99,7 +97,6 @@ namespace Capstone.Web.DAL
                         psc.SurveyCount = Convert.ToInt32(reader["surveyCount"]);
 
                         surveyResults.Add(psc);
-                        
                     }
                 }
             }
@@ -107,11 +104,7 @@ namespace Capstone.Web.DAL
             {
                 throw;
             }
-
-
             return surveyResults;
         }
-
-
     }
 }
