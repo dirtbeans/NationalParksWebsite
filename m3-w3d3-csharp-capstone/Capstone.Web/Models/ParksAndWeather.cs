@@ -7,7 +7,8 @@ namespace Capstone.Web.Models
 {
     public class ParksAndWeather
     {
-        public Park ParkFromParkAndWeather { get; set; }
-        public Weather WeatherFromParkAndWeather { get; set; }
+        public Park ParkWithWeather { get; set; }
+        public List<Weather> ListOfWeather { get; set; }
+        
     }
 }

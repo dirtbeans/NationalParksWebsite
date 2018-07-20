@@ -12,14 +12,15 @@ namespace Capstone.Web.DAL
         private readonly string connectionString;
         private const string SQL_GetWeatherForPark = "SELECT * FROM weather WHERE parkCode = @parkCode";
 
+
         public WeatherSqlDal(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public Weather GetWeatherForPark(string parkCode)
+        public List<Weather> GetWeatherForPark(string parkCode)
         {
-            Weather weather = new Weather();
+            List<Weather> weather = new List<Weather>();
 
             try
             {
@@ -35,11 +36,15 @@ namespace Capstone.Web.DAL
 
                     while (reader.Read())
                     {
-                        weather.ParkCode = Convert.ToString(reader["parkCode"]);
-                        weather.FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]);
-                        weather.Low = Convert.ToInt32(reader["low"]);
-                        weather.High = Convert.ToInt32(reader["high"]);
-                        weather.Forecast = Convert.ToString(reader["forecast"]);
+                        Weather w = new Weather();
+
+                        w.ParkCode = Convert.ToString(reader["parkCode"]);
+                        w.FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]);
+                        w.Low = Convert.ToInt32(reader["low"]);
+                        w.High = Convert.ToInt32(reader["high"]);
+                        w.Forecast = Convert.ToString(reader["forecast"]);
+
+                        weather.Add(w);
                     }
 
                 }
@@ -51,6 +56,8 @@ namespace Capstone.Web.DAL
 
             return weather;
         }
+
+     
 
     }
 }

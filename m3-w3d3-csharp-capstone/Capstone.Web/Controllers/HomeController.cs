@@ -37,15 +37,12 @@ namespace Capstone.Web.Controllers
 
             ParksAndWeather parksAndWeather = new ParksAndWeather();
 
-
-
             Park park = dal.GetOnePark(id);
-            Weather weather = weatherDal.GetWeatherForPark(id);
 
-            parksAndWeather.ParkFromParkAndWeather = park;
-            parksAndWeather.WeatherFromParkAndWeather = weather;
+            List<Weather> weather = weatherDal.GetWeatherForPark(id);
 
-
+            parksAndWeather.ParkWithWeather = park;
+            parksAndWeather.ListOfWeather = weather;
 
             return View("Detail", parksAndWeather);
         }
