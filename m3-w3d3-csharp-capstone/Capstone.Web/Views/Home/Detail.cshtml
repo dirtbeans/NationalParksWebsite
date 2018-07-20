@@ -5,7 +5,9 @@
     ViewBag.Title = "Detail";
 }
 
-<h2>Details of Park</h2>
+<h1>
+    @Model.ParkWithWeather.ParkName
+</h1>
 
 <section>
     @{
@@ -63,12 +65,7 @@
     </div>
     <table>
         <tr>
-            <td>
-                @Model.ListOfWeather[0].Low
-                @Url.Action()
-                <br />
-                @Model.ParkWithWeather.ParkName
-                <br />
+            <td>             
                 @Model.ParkWithWeather.State
                 <br />
                 @Model.ParkWithWeather.Acreage

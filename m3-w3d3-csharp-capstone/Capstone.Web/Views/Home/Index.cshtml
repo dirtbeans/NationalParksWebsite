@@ -3,23 +3,25 @@
 @{
     ViewBag.Title = "Index";
 }
-<h1>Park View</h1>
-<section>
+
+<div>
     @foreach (var item in Model)
     {
         var parkImage = "/Content/images/parks/" + item.ParkCode + ".jpg";
 
         <img class="img-left" src=@parkImage />
 
-        <h2>
-            <a class=" parklinks" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
+        <h3>
+          
+            <a href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
 
-                @Html.DisplayFor(modelItem => item.ParkName)
+                <span>   @Html.DisplayFor(modelItem => item.ParkName) </span>
             </a>
-        </h2>
+           
+        </h3>
         <p>located in  @Html.DisplayFor(modelItem => item.State)</p>
         <p>
             @Html.DisplayFor(modelItem => item.ParkDescription)
         </p>
     }
-</section>
+</div>
