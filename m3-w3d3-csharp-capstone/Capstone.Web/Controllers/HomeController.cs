@@ -82,11 +82,12 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Favorite()
         {
+            List<ParkSurveyCount> parkSurveyList = new List<ParkSurveyCount>();
 
-            List<Park> parks = dal.GetAllParks();
+            parkSurveyList = surveyDal.GetSurveyCountList();
 
 
-            return View("Favorite", parks);
+            return View("Favorite", parkSurveyList);
         }
     }
 }

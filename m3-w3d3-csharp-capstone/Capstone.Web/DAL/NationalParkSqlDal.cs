@@ -99,7 +99,7 @@ namespace Capstone.Web.DAL
                         park.ParkDescription = Convert.ToString(reader["parkDescription"]);
                         park.EntryFee = Convert.ToInt32(reader["entryFee"]);
                         park.NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
-}
+                    }
 
                 }
             }
@@ -112,7 +112,7 @@ namespace Capstone.Web.DAL
         }
 
 
-        
+
 
     }
 }
