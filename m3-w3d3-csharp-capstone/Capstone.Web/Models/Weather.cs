@@ -12,6 +12,17 @@ namespace Capstone.Web.Models
         public int Low { get; set; } //Degrees in F
         public int High { get; set; } //Degrees in F
         public string Forecast { get; set; }
+        public int LowInC
+        {
+            get
+            {
+                double celciusLow;
+
+                celciusLow = (High - 32) * (5.0 / 9.0);
+                return (int)celciusLow;
+            }
+        }
+        public int HighInC { get; set; }
 
     }
 }
