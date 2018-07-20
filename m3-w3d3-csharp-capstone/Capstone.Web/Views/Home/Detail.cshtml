@@ -3,6 +3,11 @@
 
 @{
     ViewBag.Title = "Detail";
+    Object value = this.Session["IsFahrenheit"];
+    if (value == null)
+    {
+        Session["IsFahrenheit"] = true;
+    }
 }
 
 <h2>Details of Park</h2>
@@ -65,17 +70,32 @@
     </div>
 
 
+
+    @if ((bool)Session["IsFahrenheit"] == false)
+    {
+        <td>temperature in C</td>
+    }
+    @if ((bool)Session["IsFahrenheit"] == true)
+    {
+        <td>temperatre in F</td>
+    }
+
+    <form method="post" action="@Url.Action("SwitchTemperature", "Home")">
+        @Html.Hidden("parkId", Model.ParkWithWeather.ParkCode)
+        <button>Switch Temperature</button>
+    </form>
     <table>
 
         <tr>
+
             @{ for (int i = 0; i < Model.ListOfWeather.Count; i++)
                 {
                     <td>@Model.ListOfWeather[i].Low</td>
                 }
             }
             <td>
-                @Model.ListOfWeather[0].Low
-                @Url.Action()
+
+
                 <br />
                 @Model.ParkWithWeather.ParkName
                 <br />
