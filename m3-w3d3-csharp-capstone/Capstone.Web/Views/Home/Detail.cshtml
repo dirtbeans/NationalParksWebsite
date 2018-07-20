@@ -23,17 +23,19 @@
 
     @if ((bool)Session["IsFahrenheit"] == false)
     {
-        <p>temperature in C</p>
+        <p>@Model.ListOfWeather[0].LowInC Low in C</p>
     }
     @if ((bool)Session["IsFahrenheit"] == true)
     {
-        <p>temperatre in F</p>
+        <p>@Model.ListOfWeather[0].Low Low in F</p>
     }
 
     <form method="post" action="@Url.Action("SwitchTemperature", "Home")">
         @Html.Hidden("parkId", Model.ParkWithWeather.ParkCode)
         <button>Switch Temperature</button>
     </form>
+
+
 
     <div>
 
@@ -50,6 +52,17 @@
                 var weatherImage = "/Content/images/weather/" + weatherImageCode + ".png";
 
                 <img src=@weatherImage style=width:10% />
+
+                if ((bool)Session["IsFahrenheit"] == false)
+                {
+                    <p>@Model.ListOfWeather[i].LowInC Low in C</p>
+                    <p>@Model.ListOfWeather[i].HighInC High in C</p>
+                }
+                if ((bool)Session["IsFahrenheit"] == true)
+                {
+                    <p>@Model.ListOfWeather[i].Low Low in F</p>
+                    <p>@Model.ListOfWeather[i].High High in F</p>
+                }
 
                 if (Model.ListOfWeather[i].Forecast == "snow")
                 {

@@ -18,10 +18,19 @@ namespace Capstone.Web.Models
             {
                 double celciusLow;
 
-                celciusLow = (High - 32) * (5.0 / 9.0);
+                celciusLow = (Low - 32) * (5.0 / 9.0);
                 return (int)celciusLow;
             }
         }
-        public int HighInC { get; set; }
+        public int HighInC
+        {
+            get
+            {
+                double celciusHigh;
+
+                celciusHigh = (High - 32) * (5.0 / 9.0);
+                return (int)celciusHigh;
+            }
+        }
     }
 }
