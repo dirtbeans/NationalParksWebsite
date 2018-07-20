@@ -15,7 +15,6 @@ namespace Capstone.Web.Controllers
         private readonly NationalParkSqlDal dal;
         private readonly SurveySqlDal surveyDal;
         private readonly WeatherSqlDal weatherDal;
-        private readonly ParksAndWeather parksAndWeather;
 
         public HomeController()
         {

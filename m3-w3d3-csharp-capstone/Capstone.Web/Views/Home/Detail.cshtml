@@ -17,14 +17,6 @@
 
     }
 
-    <img class="img-center" src=@parkImage />
-
-    <img class="img-center" src=@weatherImage />
-    <img class="img-center" src=@weatherImage />
-    <img class="img-center" src=@weatherImage />
-    <img class="img-center" src=@weatherImage />
-    <img class="img-center" src=@weatherImage />
-
     <div>
 
         @*@if (Model.ListOfWeather.Forecast == "snow")
@@ -70,7 +62,8 @@
 
         <tr>
             <td>
-                @Model.ParkWithWeather.ParkCode
+                @Model.ListOfWeather[0].Low
+                @Url.Action()
                 <br />
                 @Model.ParkWithWeather.ParkName
                 <br />
