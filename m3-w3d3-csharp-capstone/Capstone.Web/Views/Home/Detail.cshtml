@@ -9,39 +9,25 @@
 
 <section>
     @{
-        var parkImage = "/Content/images/parks/" + Model.ParkFromParkAndWeather.ParkCode + ".jpg";
-   
-        var dayOneWeatherImageCode = "";
-        var dayTwoWeatherImageCode = "";
-        var dayOneWeatherImage = "/Content/images/weather/" + dayOneWeatherImageCode + ".png";
-        var dayTwoWeatherImage = "/Content/images/weather/" + dayTwoWeatherImageCode + ".png";
-    
-    
-        //var weatherImage = "/Content/images/weather/" + Model.WeatherFromParkAndWeather.Forecast + ".png";
-        if (Model.WeatherFromParkAndWeather.FiveDayForecastValue == 1)
-        {
-            dayOneWeatherImageCode = Model.WeatherFromParkAndWeather.Forecast;
-        }
-        if (Model.WeatherFromParkAndWeather.FiveDayForecastValue == 2)
-        {
-            dayTwoWeatherImageCode = Model.WeatherFromParkAndWeather.Forecast;
+        var parkImage = "/Content/images/parks/" + Model.ParkWithWeather.ParkCode + ".jpg";
+        var weatherImage = "/Content/images/weather/" + Model.ListOfWeather + ".png";
 
-        }
+       
 
-        var dayTwoWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 2;
-        var dayThreeWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 3;
-        var dayFourWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 4;
-        var dayFiveWeather = Model.WeatherFromParkAndWeather.FiveDayForecastValue = 5;
 
     }
 
     <img class="img-center" src=@parkImage />
 
-    <img class="img-center" src=@dayOneWeatherImage />
-    <img class="img-center" src=@dayTwoWeatherImage />
+    <img class="img-center" src=@weatherImage />
+    <img class="img-center" src=@weatherImage />
+    <img class="img-center" src=@weatherImage />
+    <img class="img-center" src=@weatherImage />
+    <img class="img-center" src=@weatherImage />
+
     <div>
 
-        @if (Model.WeatherFromParkAndWeather.Forecast == "snow")
+        @*@if (Model.ListOfWeather.Forecast == "snow")
         {
             <h2>Make sure you pack snowshoes!</h2>
         }
@@ -75,7 +61,7 @@
         @if (Model.WeatherFromParkAndWeather.Low <= 20)
         {
             <h2>IT IS GONNA BE A COLD ONE!</h2>
-        }
+        }*@
 
     </div>
 
@@ -84,46 +70,38 @@
 
         <tr>
             <td>
-                @Model.ParkFromParkAndWeather.ParkCode
+                @Model.ParkWithWeather.ParkCode
                 <br />
-                @Model.ParkFromParkAndWeather.ParkName
+                @Model.ParkWithWeather.ParkName
                 <br />
-                @Model.ParkFromParkAndWeather.State
+                @Model.ParkWithWeather.State
                 <br />
-                @Model.ParkFromParkAndWeather.Acreage
+                @Model.ParkWithWeather.Acreage
                 <br />
-                @Model.ParkFromParkAndWeather.ElevationInFeet
+                @Model.ParkWithWeather.ElevationInFeet
                 <br />
-                @Model.ParkFromParkAndWeather.MilesOfTrail
+                @Model.ParkWithWeather.MilesOfTrail
                 <br />
-                @Model.ParkFromParkAndWeather.NumberOfCampsites
+                @Model.ParkWithWeather.NumberOfCampsites
                 <br />
-                @Model.ParkFromParkAndWeather.Climate
+                @Model.ParkWithWeather.Climate
                 <br />
-                @Model.ParkFromParkAndWeather.YearFounded
+                @Model.ParkWithWeather.YearFounded
                 <br />
-                @Model.ParkFromParkAndWeather.AnnualVisitorCount
+                @Model.ParkWithWeather.AnnualVisitorCount
                 <br />
-                @Model.ParkFromParkAndWeather.InspirationalQuote
+                @Model.ParkWithWeather.InspirationalQuote
                 <br />
-                @Model.ParkFromParkAndWeather.InspirationalQuoteSource
+                @Model.ParkWithWeather.InspirationalQuoteSource
                 <br />
-                @Model.ParkFromParkAndWeather.ParkDescription
+                @Model.ParkWithWeather.ParkDescription
                 <br />
-                @Model.ParkFromParkAndWeather.EntryFee
+                @Model.ParkWithWeather.EntryFee
                 <br />
-                @Model.ParkFromParkAndWeather.NumberOfAnimalSpecies
+                @Model.ParkWithWeather.NumberOfAnimalSpecies
             </td>
         </tr>
-
-
-
     </table>
-
-
-
-
-
 </section>
 <p>
     @Html.ActionLink("Back to Home", "Index")

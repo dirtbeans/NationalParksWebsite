@@ -57,11 +57,7 @@ namespace Capstone.Web.DAL
             return weather;
         }
 
-        public List<ParksAndWeather> GetAllWeather()
-        {
-            List<ParksAndWeather> pw = new List<ParksAndWeather>();
-            return pw;
-        }
+     
 
     }
 }
