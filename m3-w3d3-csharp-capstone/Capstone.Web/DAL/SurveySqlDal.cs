@@ -11,7 +11,7 @@ namespace Capstone.Web.DAL
     {
         private readonly string connectionString;
         private const string SQL_PostSurvey = "INSERT INTO survey_result VALUES (@parkCode, @emailAddress, @state, @activityLevel);";
-        private const string SQL_GetSurveyCount = "SELECT * FROM survey_result WHERE state = @state";
+        private const string SQL_GetSurveyCount = "SELECT * FROM survey_result WHERE parkCode = @parkCode";
 
         public SurveySqlDal(string connectionString)
         {
