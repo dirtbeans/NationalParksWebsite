@@ -66,9 +66,13 @@ namespace Capstone.Web.Controllers
             Survey model = new Survey();
             IEnumerable<Park> parks = dal.GetAllParks();
             IList<SelectListItem> parkListItems = new List<SelectListItem>();
+
+            //parkListItems.Add(new SelectListItem() { Text = "Please Select One", Value = null });
+
             foreach (Park p in parks)
             {
                 SelectListItem item = new SelectListItem { Value = p.ParkCode, Text = p.ParkName };
+                
                 parkListItems.Add(item);
             }
             model.ParkSelectListItems = parkListItems;

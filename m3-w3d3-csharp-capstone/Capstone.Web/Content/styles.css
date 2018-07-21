@@ -5,6 +5,7 @@
 }
 body, header, nav {
     margin: 0px;
+    padding: 0px;
 }
 header {
     background-color: #009933;
@@ -57,23 +58,25 @@ nav {
 section {
     clear: both;
     display: block;
-    width: 80%;
-    margin: 20px auto;
+    width: 90%;
+    margin: auto;
     vertical-align: top;
     text-align: center;
     min-height: 450px;
     background-color: #FFF;
     border-radius: 7px;
 }
+
 .img-left {
     position: relative;
     float: left;
-    width: 125px;
-    height: 100px;
+    width: 250px;
+    height: 200px;
     margin: 10px 20px 10px 20px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 50%;
 }
 .img-center {
     position: relative;
@@ -84,6 +87,10 @@ section {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.right{
+    float:right;
 }
 span {
     color:black;

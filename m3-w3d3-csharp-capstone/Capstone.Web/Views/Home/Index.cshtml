@@ -4,24 +4,23 @@
     ViewBag.Title = "Index";
 }
 
-<div>
+<section>
     @foreach (var item in Model)
     {
         var parkImage = "/Content/images/parks/" + item.ParkCode + ".jpg";
-
-        <img class="img-left" src=@parkImage />
-
-        <h3>
-          
-            <a href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
-
-                <span>   @Html.DisplayFor(modelItem => item.ParkName) </span>
-            </a>
-           
-        </h3>
-        <p>located in  @Html.DisplayFor(modelItem => item.State)</p>
-        <p>
-            @Html.DisplayFor(modelItem => item.ParkDescription)
-        </p>
+       <div>
+            <img class=" img-left" src=@parkImage alt="Park"/>
+            <p class=" img-left">located in  @Html.DisplayFor(modelItem => item.State)</p>
+           </div>
+        <div class=" right">
+            <h3>
+                <a style="text-decoration:none;" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
+                    <span>   @Html.DisplayFor(modelItem => item.ParkName) </span>
+                </a>
+            </h3>
+            <p>
+                @Html.DisplayFor(modelItem => item.ParkDescription)
+            </p>
+       </div>     
     }
-</div>
+</section>
