@@ -8,19 +8,21 @@
     @foreach (var item in Model)
     {
         var parkImage = "/Content/images/parks/" + item.ParkCode + ".jpg";
-       <div>
-            <img class=" img-left" src=@parkImage alt="Park"/>
-            <p class=" img-left">located in  @Html.DisplayFor(modelItem => item.State)</p>
-           </div>
-        <div class=" right">
-            <h3>
+    <div>
+       
+            <img align="left" class=" small" src=@parkImage alt="Park" />
+            @*<p class=" left">located in  @Html.DisplayFor(modelItem => item.State)</p>*@
+        
+       
+            <h3 align=" right">
                 <a style="text-decoration:none;" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
                     <span>   @Html.DisplayFor(modelItem => item.ParkName) </span>
                 </a>
             </h3>
-            <p>
+            <p1>
                 @Html.DisplayFor(modelItem => item.ParkDescription)
-            </p>
-       </div>     
+            </p1>
+       
+    </div>
     }
 </section>

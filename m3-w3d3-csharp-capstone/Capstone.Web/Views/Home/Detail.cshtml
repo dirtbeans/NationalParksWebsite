@@ -13,31 +13,69 @@
 <h1>
     @Model.ParkWithWeather.ParkName
 </h1>
+<p>@Model.ParkWithWeather.ParkDescription </p>
 
 <section>
     @{
         var parkImage = "/Content/images/parks/" + Model.ParkWithWeather.ParkCode + ".jpg";
         <img class="img-center" src=@parkImage />
     }
+    <br />
+    <div>
+        @Model.ParkWithWeather.InspirationalQuote
+        <br/>
+        - @Model.ParkWithWeather.InspirationalQuoteSource
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    @*@if ((bool)Session["IsFahrenheit"] == false)
+        {
+            <p>@Model.ListOfWeather[0].LowInC Low in C</p>
+        }
+        @if ((bool)Session["IsFahrenheit"] == true)
+        {
+            <p>@Model.ListOfWeather[0].Low Low in F</p>
+        }*@
 
 
-    @if ((bool)Session["IsFahrenheit"] == false)
-    {
-        <p>@Model.ListOfWeather[0].LowInC Low in C</p>
-    }
-    @if ((bool)Session["IsFahrenheit"] == true)
-    {
-        <p>@Model.ListOfWeather[0].Low Low in F</p>
-    }
 
-    <form method="post" action="@Url.Action("SwitchTemperature", "Home")">
-        @Html.Hidden("parkId", Model.ParkWithWeather.ParkCode)
-        <button>Switch Temperature</button>
-    </form>
 
 
 
     <div>
+        Located in
+        @Model.ParkWithWeather.State, @Model.ParkWithWeather.ParkName, was founded in  @Model.ParkWithWeather.YearFounded .
+
+        With
+        @Model.ParkWithWeather.Acreage acres the park boosts around  @Model.ParkWithWeather.NumberOfAnimalSpecies
+        differnt species of animals.
+        The park has  @Model.ParkWithWeather.AnnualVisitorCount visitors per year.
+        @if (Model.ParkWithWeather.NumberOfCampsites > 0)
+        {
+            <p> Visitors can stay in one of the @Model.ParkWithWeather.NumberOfCampsites campsites.</p>
+        }
+        Enjoy the @Model.ParkWithWeather.MilesOfTrail miles of trails.
+        The elevation of the park is @Model.ParkWithWeather.ElevationInFeet feet and has a @Model.ParkWithWeather.Climate climate.
+
+        Price for entry is @if (@Model.ParkWithWeather.EntryFee <= 0)
+        {<h1> <b> FREE!</b></h1>
+        }
+        @if (@Model.ParkWithWeather.EntryFee > 0)
+        {<h1> <b>$@Model.ParkWithWeather.EntryFee </b></h1>}
+        Please check out the five day forcast below to plan your next visit.
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </div>
+    <br />
+    <div align="center" class="weatherRow">
 
 
 
@@ -51,87 +89,58 @@
                 }
                 var weatherImage = "/Content/images/weather/" + weatherImageCode + ".png";
 
-                <img src=@weatherImage style=width:10% />
+                <img class="img-weather" src=@weatherImage />
 
                 if ((bool)Session["IsFahrenheit"] == false)
                 {
-                    <p>@Model.ListOfWeather[i].LowInC Low in C</p>
-                    <p>@Model.ListOfWeather[i].HighInC High in C</p>
+                    <p2>@Model.ListOfWeather[i].LowInC Low in C</p2>
+                    <p2>@Model.ListOfWeather[i].HighInC High in C</p2>
                 }
                 if ((bool)Session["IsFahrenheit"] == true)
                 {
-                    <p>@Model.ListOfWeather[i].Low Low in F</p>
-                    <p>@Model.ListOfWeather[i].High High in F</p>
+                    <p2>@Model.ListOfWeather[i].Low Low in F</p2>
+                    <p2>@Model.ListOfWeather[i].High High in F</p2>
                 }
 
                 if (Model.ListOfWeather[i].Forecast == "snow")
                 {
-                    <p>Make sure you pack snowshoes!</p>
+                    <p2>Make sure you pack snowshoes!</p2>
                 }
                 if (Model.ListOfWeather[i].Forecast == "rain")
                 {
-                    <p>Make sure you pack rain gear and wear waterproof shoes!</p>
+                    <p2>Make sure you pack rain gear and wear waterproof shoes!</p2>
                 }
                 if (Model.ListOfWeather[i].Forecast == "thunderstorms")
                 {
-                    <p>SEEK SHELTER! Avoid hiking on exposed ridges!</p>
+                    <p2>SEEK SHELTER! Avoid hiking on exposed ridges!</p2>
                 }
                 if (Model.ListOfWeather[i].Forecast == "sunny")
                 {
-                    <p>Make sure you pack sunblock!</p>
+                    <p2>Make sure you pack sunblock!</p2>
                 }
                 if (Model.ListOfWeather[i].High >= 75)
                 {
-                    <p>Pack an extra gallon of water!</p>
+                    <p2>Pack an extra gallon of water!</p2>
                 }
                 if (Model.ListOfWeather[i].Low <= 20)
                 {
-                    <p>IT IS GONNA BE A COLD ONE!</p>
+                    <p2>IT IS GONNA BE A COLD ONE!</p2>
                 }
                 if ((Model.ListOfWeather[i].High) - (Model.ListOfWeather[i].Low) >= 20)
                 {
-                    <p>Layers People!</p>
+                    <p2>Layers People!</p2>
                 }
                 else
                 {
-                    <p> </p>
+                    <p2> </p2>
                 }
             }
         }
     </div>
-    <table>
-        <tr>
-
-            <td>             
-
-                @Model.ParkWithWeather.State
-                <br />
-                @Model.ParkWithWeather.Acreage
-                <br />
-                @Model.ParkWithWeather.ElevationInFeet
-                <br />
-                @Model.ParkWithWeather.MilesOfTrail
-                <br />
-                @Model.ParkWithWeather.NumberOfCampsites
-                <br />
-                @Model.ParkWithWeather.Climate
-                <br />
-                @Model.ParkWithWeather.YearFounded
-                <br />
-                @Model.ParkWithWeather.AnnualVisitorCount
-                <br />
-                @Model.ParkWithWeather.InspirationalQuote
-                <br />
-                @Model.ParkWithWeather.InspirationalQuoteSource
-                <br />
-                @Model.ParkWithWeather.ParkDescription
-                <br />
-                @Model.ParkWithWeather.EntryFee
-                <br />
-                @Model.ParkWithWeather.NumberOfAnimalSpecies
-            </td>
-        </tr>
-    </table>
+    <form method="post" action="@Url.Action("SwitchTemperature", "Home")">
+        @Html.Hidden("parkId", Model.ParkWithWeather.ParkCode)
+        <button>Switch Temperature</button>
+    </form>
 </section>
 <p>
     @Html.ActionLink("Back to Home", "Index")

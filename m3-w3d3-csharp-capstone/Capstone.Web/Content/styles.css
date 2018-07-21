@@ -3,7 +3,7 @@
     background-color: #212121;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-body, header, nav {
+body, nav {
     margin: 0px;
     padding: 0px;
 }
@@ -11,7 +11,12 @@ header {
     background-color: #009933;
     color: white;
     padding: 10px 10px;
+    text-align:center;
+    width: 100%;
+    
+    
 }
+
     header img{
         width: 35%;
     }
@@ -19,6 +24,13 @@ div {
     display: inline-block;
     width: 50%;
 }
+.weatherRow{
+    
+    display: flex;
+    
+    
+}
+
 h1 {
     color: black;
     font-size: xx-large;
@@ -30,11 +42,18 @@ h2 {
     font-size: large;
     font-family: 'Bell MT';
 }
+p1 {
+
+}
+p2 {
+    font-size: smaller;
+}
 nav {
     background-color: #663300;
     margin-bottom: 20px;
     padding: 5px;
     height: 50px;
+    /*width: 100%*/
 }
     nav ul {
         float: left;
@@ -65,33 +84,52 @@ section {
     min-height: 450px;
     background-color: #FFF;
     border-radius: 7px;
+    padding: 10px 10px 10px 10px;
 }
 
-.img-left {
-    position: relative;
+.small {
+    /*position: relative;
     float: left;
     width: 250px;
     height: 200px;
     margin: 10px 20px 10px 20px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
     border-radius: 50%;
+    width: 175px;
+    height: auto;
+    border: 5px solid black;
 }
 .img-center {
-    position: relative;
+    /*position: relative;
     float: none;
     width: 250px;
     height: 200px;
     margin: 10px 20px 10px 20px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
+    border-radius: 30%;
+    width: 450px;
+    height: auto;
+    border: 10px solid black;
+}
+.img-center-header {
+    display:inline-block;
+    margin:0 auto;
+}
+.img-weather {
+    width: 25px;
+    height: 25px;
 }
 
-.right{
+/*.right{
     float:right;
 }
+.left {
+    float: left;
+}*/
 span {
     color:black;
 }
@@ -111,7 +149,7 @@ span:visited {
     box-sizing: border-box;
 }
 .formSubmitButton {
-    width: 40%;
+    width: 20%;
     background-color: #009933;
     color: white;
     padding: 14px 20px;

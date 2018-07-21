@@ -13,18 +13,30 @@
         <br />
         @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
     </div>
+
+
+
+
    <div class="formInputGroup">
     @Html.Label("ParkCode", "Park visited: ")
     <br />
-    @Html.DropDownListFor(m => m.ParkCode, Model.ParkSelectListItems, new { @class = "form-control" })
+
+   @Html.DropDownListFor(m => m.ParkCode, Model.ParkSelectListItems, new { @class = "form-control" })
 
     </div>
+
+
+
+
+
+
+
     <div class="formInputGroup">
         @Html.Label("State", "State of residence: ")
         <br />
 
 
-
+        
         @Html.DropDownListFor(m => m.State, Survey.States, new { @class = "form-control" })
     </div>
     <div class="formInputGroup">
