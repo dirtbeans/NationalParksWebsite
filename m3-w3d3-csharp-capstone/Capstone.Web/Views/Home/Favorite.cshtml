@@ -3,21 +3,27 @@
 @{
     ViewBag.Title = "Index";
 }
-@*<h1>Favorites</h1>*@
+<h1>Favorite Parks</h1>
+<br/>
 <section>
-    <table>
+    <div>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    <a class=" parklinks" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
-                        @Html.DisplayFor(modelItem => item.ParkName)
-                    </a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SurveyCount)
-                </td>
-            </tr>
+            
+            <h3 style="text-align:left">
+                <a style="text-decoration:none;" href="@Url.Action("Detail", "Home", new { id = item.ParkCode})">
+                    <span>   @Html.DisplayFor(modelItem => item.ParkName) </span>
+                </a>
+           
+                <span class="blacktext"style="float:right;"> Votes: @Html.DisplayFor(modelItem => item.SurveyCount) </span>
+            </h3>
+               
+            var parkImage = "/Content/images/parks/" + item.ParkCode + ".jpg";
+            <img class="largesquare"src=@parkImage alt="Park" />
+            <p1>
+            </p1>
+            <br />
+            <div style="clear: both;"></div> 
         }
-    </table>
+    </div>
 </section>

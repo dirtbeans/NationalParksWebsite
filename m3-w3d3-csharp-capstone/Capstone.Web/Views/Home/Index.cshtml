@@ -5,10 +5,10 @@
 }
 
 <section>
+    <div>
     @foreach (var item in Model)
     {
         var parkImage = "/Content/images/parks/" + item.ParkCode + ".jpg";
-    <div>
        
             <img align="left" class=" small" src=@parkImage alt="Park" />
             @*<p class=" left">located in  @Html.DisplayFor(modelItem => item.State)</p>*@
@@ -20,9 +20,9 @@
                 </a>
             </h3>
             <p1>
-                @Html.DisplayFor(modelItem => item.ParkDescription)
+                Located in @Html.DisplayFor(modelItem => item.State) . @Html.DisplayFor(modelItem => item.ParkDescription)
             </p1>
        
-    </div>
     }
+    </div>
 </section>

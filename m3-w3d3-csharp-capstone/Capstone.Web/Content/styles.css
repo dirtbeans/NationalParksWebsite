@@ -86,7 +86,10 @@ section {
     border-radius: 7px;
     padding: 10px 10px 10px 10px;
 }
+.favoritebox {
+    width: 90%;
 
+}
 .small {
     /*position: relative;
     float: left;
@@ -98,6 +101,12 @@ section {
     background-size: cover;*/
     border-radius: 50%;
     width: 175px;
+    height: auto;
+    border: 5px solid black;
+}
+.largesquare {
+    border-radius: 0%;
+    width: 500px;
     height: auto;
     border: 5px solid black;
 }
@@ -161,3 +170,17 @@ span:visited {
         .formSubmitButton:hover {
             background-color: #10A943;
         }
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+.blacktext {
+    color:black;
+    font-size:larger;
+}
+.blacktext:hover {
+    color:black;
+}
