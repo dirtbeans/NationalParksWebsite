@@ -24,9 +24,26 @@ div {
     display: inline-block;
     width: 50%;
 }
-.weatherRow{
-    
-    display: flex;
+.weatherRow {
+    display: inline-block;
+    align-items:center;
+    width: 100px;
+    height: auto;
+    padding: 5px;
+    border: 1px solid black;
+   
+    /*display: flex;
+    align-content: center;*/
+}
+.notsobigsection {
+    clear: both;
+    display: block;
+    width: 90%;
+    margin: auto;
+    vertical-align: top;
+    text-align: center;
+    max-height: 150px;
+    background-color: #FFF;
     
     
 }
