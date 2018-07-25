@@ -67,6 +67,9 @@ namespace Capstone.Web.Controllers
             IEnumerable<Park> parks = dal.GetAllParks();
             IList<SelectListItem> parkListItems = new List<SelectListItem>();
 
+            SelectListItem defaultSelection = new SelectListItem { Value = null, Text = "Please make a selection" };
+            parkListItems.Add(defaultSelection);
+
             foreach (Park p in parks)
             {
                 SelectListItem item = new SelectListItem { Value = p.ParkCode, Text = p.ParkName };
